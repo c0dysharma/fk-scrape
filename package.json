@@ -1,0 +1,15 @@
+{
+  "name": "fk-scrape",
+  "version": "1.0.0",
+  "description": "Package to Scrape flipkart product page",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "c0dysharma",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
