@@ -7,9 +7,24 @@
     "start": "node index.js"
   },
   "author": "c0dysharma",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c0dysharma/fk-scrape.git"
+  },
+  "keywords": [
+    "scrapper",
+    "flipkart",
+    "product-page",
+    "flipkart-scrapper"
+  ],
+  "bugs": {
+    "url": "https://github.com/c0dysharma/fk-scrape/issues"
+  },
+  "homepage": "https://github.com/c0dysharma/fk-scrape#readme"
 }
