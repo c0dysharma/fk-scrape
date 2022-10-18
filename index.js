@@ -13,10 +13,12 @@ class Scrapper {
     const description = $("._1mXcCf > p");
     const originalPrice = $("._25b18c >  ._3I9_wc");
     const discountedPrice = $("._25b18c > ._16Jk6d");
-    const oos = $('._1dVbu9')
+    const oos = $("._1dVbu9");
     let productImages = $("._2E1FGS > img");
     let bigImage = $(".CXW8mj._3nMexc > img");
+    let categories = $("._1MR4o5 > ._3GIHBu > a");
 
+    // get product images
     if (productImages.length) {
       const arr = [];
       for (let image of productImages) {
@@ -26,6 +28,24 @@ class Scrapper {
     } else {
       if (bigImage.length) productImages = [bigImage[0].attribs["src"]];
     }
+
+    // get categories Tree
+    if (categories.length) {
+      let cats = "";
+
+      // Removing first 'Home' value
+      categories = categories.slice(1);
+      for (let category of categories) {
+        // print(categories)
+        cats += " > " + category.firstChild.data;
+      }
+
+      // removing first ' >'
+      cats = cats.slice(2);
+      cats = cats.trim();
+
+      categories = cats;
+    } else categories = "Others";
 
     const metaData = {
       status: res.status,
@@ -39,7 +59,10 @@ class Scrapper {
       discountedPrice: discountedPrice.length
         ? discountedPrice[0].firstChild.data
         : null,
-      outOfStock: oos.length ? oos[0].firstChild.data.includes('out of stock') : false
+      outOfStock: oos.length
+        ? oos[0].firstChild.data.includes("out of stock")
+        : false,
+      categoriesTree: categories,
     };
     return metaData;
   }
